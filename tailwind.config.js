@@ -1,4 +1,3 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -6,15 +5,46 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
-    },
+    extend: {},
   },
   plugins: [
     require('daisyui'),
   ],
+  daisyui: { 
+    themes: [
+      "light", 
+      {
+        dark: {
+          "base-100": "oklch(13% 0.028 261.692)",
+          "base-200": "oklch(21% 0.034 264.665)",
+          "base-300": "oklch(27% 0.033 256.848)",
+          "base-content": "oklch(96% 0.003 264.542)",
+          "primary": "oklch(72% 0.219 149.579)",
+          "primary-content": "oklch(98% 0.018 155.826)",
+          "secondary": "oklch(69% 0.17 162.48)",
+          "secondary-content": "oklch(97% 0.021 166.113)",
+          "accent": "oklch(63% 0.237 25.331)",
+          "accent-content": "oklch(97% 0.013 17.38)",
+          "neutral": "oklch(13% 0.028 261.692)",
+          "neutral-content": "oklch(98% 0.002 247.839)",
+          "info": "oklch(62% 0.214 259.815)",
+          "info-content": "oklch(97% 0.014 254.604)",
+          "success": "oklch(72% 0.219 149.579)",
+          "success-content": "oklch(98% 0.018 155.826)",
+          "warning": "oklch(76% 0.188 70.08)",
+          "warning-content": "oklch(98% 0.022 95.277)",
+          "error": "oklch(63% 0.237 25.331)",
+          "error-content": "oklch(97% 0.013 17.38)",
+          "radius-selector": "0rem",
+          "radius-field": "2rem",
+          "radius-box": "0.25rem",
+          "size-selector": "0.25rem",
+          "size-field": "0.25rem",
+          "border": "1px",
+          "depth": "1",
+          "noise": "1",
+        },
+      },
+    ],
+  },
 };
