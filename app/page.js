@@ -2,10 +2,10 @@ import ButtonLogin from "@/components/ButtonLogin";
 import FAQListItems from "@/components/FAQListItems";
 import Image from "next/image";
 import productDemo from "./productDemo.jpeg";
+import { auth } from "@/auth";
 
-export default function Home() {
-  const isLoggedIn = true;
-  const name = "Héctor";
+export default async function Home() {
+  const session = await auth();
 
   const pricingFeaturedList = [
     "Collect customer feedback",
@@ -29,13 +29,17 @@ export default function Home() {
             </a>
           </div>
           <div>
-            <ButtonLogin isLoggedIn={isLoggedIn} name={name} />
+            <ButtonLogin session={session} />
           </div>
         </div>
       </section>
       {/* HERO */}
       <section className="text-center lg:text-left py-32 px-8 max-w-5xl mx-auto flex flex-col lg:flex-row gap-14 items-center lg:items-start">
-        <Image src={productDemo} alt="Product demo" className="w-96 rounded-xl" />
+        <Image
+          src={productDemo}
+          alt="Product demo"
+          className="w-96 rounded-xl"
+        />
         <div>
           <h1 className="text-3xl lg:text-5xl font-bold mb-6">
             Collect customer feedback to build better products
@@ -44,7 +48,7 @@ export default function Home() {
             Create a feedback board in minutes, prioritaze features, and build
             products your customer will love.
           </div>
-          <ButtonLogin isLoggedIn={isLoggedIn} name={name} />
+          <ButtonLogin session={session} />
         </div>
       </section>
       {/* PRICING */}
@@ -82,11 +86,7 @@ export default function Home() {
                 </li>
               ))}
             </ul>
-            <ButtonLogin
-              isLoggedIn={isLoggedIn}
-              name={name}
-              extraStyle="w-full"
-            />
+            <ButtonLogin session={session} extraStyle="w-full" />
           </div>
         </div>
       </section>
